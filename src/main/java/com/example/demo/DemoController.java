@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
+import java.util.List;
 
 @RestController
 public class DemoController {
@@ -20,4 +21,10 @@ public class DemoController {
     public String fileContent() throws IOException {
         return fileService.fileContent();
     }
+
+    @GetMapping("/stateprice")
+    public List<PricePerDay> priceContent() throws IOException {
+        return fileService.readPrices();
+    }
+
 }
